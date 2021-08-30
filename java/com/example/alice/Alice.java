@@ -127,9 +127,9 @@ public class Alice extends Service {
             .replaceAll("\"","%22")
             .replaceAll("/", "%2F")
             .replaceAll("=","%3D");
-            String url = "https://voicerss-text-to-speech.p.rapidapi.com/?key=0a8adb54548541a2a09d40cfa06800de&hl=en-us&src="+ text +"&f=8khz_8bit_mono&c=aac&r=0";
-            header.put("x-rapidapi-host", "voicerss-text-to-speech.p.rapidapi.com");
-            header.put("x-rapidapi-key", "3b18b63be3mshf3e29579172b51cp115d39jsn4d40dbf7cc95");
+            String url = "your API";
+            header.put("x-rapidapi-host", "your host");
+            header.put("x-rapidapi-key", "your API's key");
 
             //add the the request to the mediaPlayer and play it
             try {
