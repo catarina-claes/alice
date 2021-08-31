@@ -16,6 +16,7 @@
         android:theme="@style/Theme.Alice">
 
         <service
+            android:usesCleartextTraffic="true"
             android:name=".Alice"
             android:enabled="true"
             android:exported="true" />
