@@ -64,6 +64,13 @@ public class Alice extends Service {
 
     public void floatingWidget(LayoutInflater inflater) {
 
+        int Layout_Flag;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Layout_Flag = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        } else {
+            Layout_Flag = WindowManager.LayoutParams.TYPE_PHONE;
+        }
+
         //ngeubuat view
         mView = inflater.inflate(R.layout.popup_window, null);
 
@@ -71,7 +78,7 @@ public class Alice extends Service {
         WindowManager.LayoutParams mParam = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+                Layout_Flag,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT
         );
@@ -82,7 +89,7 @@ public class Alice extends Service {
         WindowManager.LayoutParams mParam2 = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+                Layout_Flag,
                 0,
                 PixelFormat.TRANSLUCENT
         );
@@ -127,9 +134,9 @@ public class Alice extends Service {
             .replaceAll("\"","%22")
             .replaceAll("/", "%2F")
             .replaceAll("=","%3D");
-            String url = "your API";
-            header.put("x-rapidapi-host", "your host");
-            header.put("x-rapidapi-key", "your API's key");
+            String url = "https://voicerss-text-to-speech.p.rapidapi.com/?key=0a8adb54548541a2a09d40cfa06800de&hl=en-us&src="+ text +"&f=8khz_8bit_mono&c=mp4a&r=0";
+            header.put("x-rapidapi-host", "voicerss-text-to-speech.p.rapidapi.com");
+            header.put("x-rapidapi-key", "3b18b63be3mshf3e29579172b51cp115d39jsn4d40dbf7cc95");
 
             //add the the request to the mediaPlayer and play it
             try {
